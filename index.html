@@ -4,11 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K.F.Penmoor - Surrealist Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: 'UnifrakturCook', cursive;
+      font-family: 'Cormorant Garamond', serif;
       background-color: #0f0f0f;
       color: #e0e0e0;
       overflow-x: hidden;
@@ -22,27 +25,30 @@
       text-align: center;
     }
     header h1 {
-      font-size: 4rem;
+      font-size: 3.5rem;
       background: rgba(0, 0, 0, 0.6);
       padding: 1rem 2rem;
       border: 2px solid #ccc;
       border-radius: 10px;
+      transition: opacity 1s ease-in;
     }
     section {
-      padding: 4rem 2rem;
-      max-width: 900px;
+      padding: 3rem 1.5rem;
+      max-width: 960px;
       margin: 0 auto;
     }
     .bio {
       font-size: 1.2rem;
       line-height: 1.8;
       text-align: center;
+      margin-bottom: 3rem;
+      animation: fadeIn 1.5s ease-in;
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      animation: fadeIn 2s ease-in;
     }
     .gallery img {
       width: 100%;
@@ -50,14 +56,28 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
     }
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #777;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+        padding: 0.8rem 1.2rem;
+      }
+      .bio {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+      }
     }
   </style>
 </head>
