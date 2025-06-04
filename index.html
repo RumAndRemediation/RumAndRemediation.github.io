@@ -101,6 +101,51 @@
         padding: 0 0.5rem;
       }
     }
+	.lightbox {
+	  display: none;
+	  position: fixed;
+	  z-index: 1000;
+	  top: 0; left: 0;
+	  width: 100vw;
+	  height: 100vh;
+	  background: rgba(15, 15, 15, 0.95);
+	  align-items: center;
+	  justify-content: center;
+	  flex-direction: column;
+	  padding: 2rem;
+	}
+
+	.lightbox-img {
+	  max-width: 90%;
+	  max-height: 80vh;
+	  margin-bottom: 1.5rem;
+	  border-radius: 10px;
+	  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+	}
+
+	.lightbox-caption {
+	  color: #ccc;
+	  font-size: 1.1rem;
+	  text-align: center;
+	  max-width: 80%;
+	  line-height: 1.5;
+	}
+
+	.close {
+	  position: absolute;
+	  top: 20px;
+	  right: 30px;
+	  font-size: 2rem;
+	  color: #aaa;
+	  cursor: pointer;
+	  transition: color 0.3s ease;
+	}
+
+	.close:hover {
+	  color: #fff;
+	}
+
+
   </style>
 </head>
 <body>
@@ -119,6 +164,11 @@
 	  <img src="images/beksinski_placeholder_6.jpg" alt="Placeholder artwork 5">
 	  <img src="images/beksinski_placeholder_7.jpg" alt="Placeholder artwork 6">
     </div>
+	<div id="lightbox" class="lightbox">
+		<span class="close">&times;</span>
+		<img class="lightbox-img" id="lightbox-img" src="" alt="">
+		<div class="lightbox-caption" id="lightbox-caption"></div>
+	</div>
   </section>
   <section class="contact">
 	<h2>Get in Touch</h2>
@@ -128,5 +178,41 @@
   <footer>
     &copy; 2025 K.F.Penmoor. All rights reserved.
   </footer>
+	<script>
+	  document.addEventListener("DOMContentLoaded", function () {
+		const lightbox = document.getElementById("lightbox");
+		const lightboxImg = document.getElementById("lightbox-img");
+		const caption = document.getElementById("lightbox-caption");
+		const close = document.querySelector(".close");
+
+		const descriptions = {
+		  "beksinski_placeholder_1.jpg": "Title 1 – A descent into organic oblivion.",
+		  "beksinski_placeholder_3.jpg": "Title 2 – Silent limbs reach for lost suns.",
+		  "beksinski_placeholder_4.jpg": "Title 3 – A shrine of bone and memory.",
+		  "beksinski_placeholder_5.jpg": "Title 4 – Faces folded in dust and time.",
+		  "beksinski_placeholder_6.jpg": "Title 5 – Through the mist, a ruin sings.",
+		  "beksinski_placeholder_7.jpg": "Title 6 – Veins of the earth, dreams unspoken."
+		};
+
+		document.querySelectorAll(".gallery img").forEach(img => {
+		  img.addEventListener("click", () => {
+			const filename = img.src.split("/").pop();
+			lightbox.style.display = "flex";
+			lightboxImg.src = img.src;
+			caption.textContent = descriptions[filename] || "Untitled work";
+		  });
+		});
+
+		close.addEventListener("click", () => {
+		  lightbox.style.display = "none";
+		});
+
+		lightbox.addEventListener("click", e => {
+		  if (e.target === lightbox) {
+			lightbox.style.display = "none";
+		  }
+		});
+	  });
+	</script>
 </body>
 </html>
