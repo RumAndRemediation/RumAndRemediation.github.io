@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="K.F. Penmoor – Surrealist artist based in Devon. View a collection of dreamlike, haunting works that explore the subconscious.">
+  <meta property="og:title" content="K.F.Penmoor - Surrealist Devon Artist" />
+  <meta property="og:description" content="Explore the dreamscapes of K.F.Penmoor, a Devon-based surrealist artist." />
+  <meta property="og:image" content="URL_TO_A_FEATURED_IMAGE.jpg" />
+  <meta property="og:type" content="website" />
   <title>K.F.Penmoor - Surrealist Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -20,6 +25,7 @@
       height: 100vh;
       background: url('images/beksinski_placeholder_2.jpg') center/cover no-repeat;
       display: flex;
+	  flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -32,6 +38,12 @@
       border-radius: 10px;
       transition: opacity 1s ease-in;
     }
+	.tagline {
+	  font-size: 1.5rem;
+	  font-style: italic;
+	  color: #ccc;
+	  margin: 1rem 0 1.5rem 0;
+	}
     section {
       padding: 3rem 1.5rem;
       max-width: 960px;
@@ -151,6 +163,7 @@
 <body>
   <header>
     <h1>K.F.Penmoor</h1>
+	<p class="tagline">Surrealist visions from the Devon shadows</p>
   </header>
   <section>
     <div class="bio">
